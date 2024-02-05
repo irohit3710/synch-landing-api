@@ -1,11 +1,11 @@
 import express from 'express';
-import { TrainerLandingService } from '../services/TrainerLandingForm.service';
+import { TraineeLandingService } from '../services/TraineeLandingForm.service';
 
-export default class TrainerLandingController {
+export default class TraineeLandingController {
     //get trianer landing
     static async get(req: express.Request, res: express.Response, next: express.NextFunction){
         try {
-            const trainer = await TrainerLandingService.get();
+            const trainer = await TraineeLandingService.get();
             if(!trainer){
                 res.status(500).send("Unable to get details");
             }
@@ -19,7 +19,7 @@ export default class TrainerLandingController {
     static async create(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             const payload = req.body;
-            const trainer = await TrainerLandingService.create(payload);
+            const trainer = await TraineeLandingService.create(payload);
 
             if(!trainer){
                 res.status(500).send("Unable to post details");

@@ -1,4 +1,5 @@
 import { Router } from "express"
+import V2Router from "./v2/v2.router";
 // import V2Router from "./v2/v2.router";
 
 export default class VersionRouter{
@@ -10,6 +11,6 @@ export default class VersionRouter{
     }
 
     public routes(): void {
-        // this.router.use("/v2", new V2Router().router)
+        this.router.use("/v2", new V2Router().router)
     }
 }

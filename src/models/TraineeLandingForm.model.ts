@@ -2,16 +2,16 @@ import { Schema, Document, model } from "mongoose";
 import { SessionTypeEnum, TrainingModeEnum, YearExperienceEnum } from "../lib/enums/landingForm.enum";
 
 
-export interface ITrainerLanding extends Document {
+export interface ITraineeLanding extends Document {
     name: string,
     email: string,
     phone: string,
-    qualifications: [string],
-    expertise: string,
-    experience: YearExperienceEnum,
+    fitnessGoal:string,
     previousPlatform: string,
     trainingMode: TrainingModeEnum,
     sessionType: SessionTypeEnum,
+    likedMostPreviousExperiences:string,
+    likedLeastPreviousExperiences:string,
     availability: any,
     expectation: string,
     specificFeature: string,
@@ -19,16 +19,16 @@ export interface ITrainerLanding extends Document {
 }
 
 
-const trainerLandingFormSchema = new Schema<ITrainerLanding>({
+const traineeLandingFormSchema = new Schema<ITraineeLanding>({
     name: { type: String },
     email: { type: String },
     phone: { type: String },
-    qualifications: { type: [String] },
-    expertise: { type: String },
-    experience: { type: String, enum: Object.values(YearExperienceEnum) },
+    fitnessGoal:{type:String},
     previousPlatform: { type: String },
     trainingMode: { type: String, enum: Object.values(TrainingModeEnum) },
     sessionType: { type: String, enum: Object.values(SessionTypeEnum) },
+    likedMostPreviousExperiences:{type:String},
+    likedLeastPreviousExperiences:{type:String},
     availability: { type: Object },
     expectation: { type: String },
     specificFeature: { type: String },
@@ -38,9 +38,9 @@ const trainerLandingFormSchema = new Schema<ITrainerLanding>({
     {
         versionKey: false,
         timestamps: true,
-        collection: "trainerLandingForm"
+        collection: "traineeLandingForm"
     }
 )
 
 
-export default model<ITrainerLanding>("trainerLandingForm", trainerLandingFormSchema)
+export default model<ITraineeLanding>("traineeLandingForm", traineeLandingFormSchema)
